@@ -2,26 +2,24 @@ package raindrops
 
 import (
 	"strconv"
-	"strings"
 )
 
+//Convert is a ncie function
 func Convert(value int) string {
-	result := strings.Builder{}
+	var result string
 	if value%3 == 0 {
-		result.WriteString("Pling")
+		result += "Pling"
 	}
 
 	if value%5 == 0 {
-		result.WriteString("Plang")
+		result += "Plang"
 	}
 
 	if value%7 == 0 {
-		result.WriteString("Plong")
+		result += "Plong"
 	}
-	finalResult := result.String()
-	if len(finalResult) == 0 {
-		finalResult = strconv.Itoa(value)
+	if len(result) == 0 {
+		result = strconv.Itoa(value)
 	}
-	print(finalResult)
-	return finalResult
+	return result
 }
