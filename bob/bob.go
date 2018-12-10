@@ -30,23 +30,21 @@ func Hey(remark string) (string, int) {
 	if totalCounter == 0 {
 		return "Fine. Be that way!", 0
 	}
-	if totalCounter != 0 && letterCounter == 0 && lastGraphic != '?' {
+	if letterCounter == 0 {
+		if lastGraphic == '?' {
+			return "Sure.", letterCounter
+		}
 		return "Whatever.", letterCounter
 	}
-	if totalCounter != 0 && letterCounter == 0 && lastGraphic == '?' {
-		return "Sure.", letterCounter
-	}
-	if lastGraphic == '?' && capitalCounter < letterCounter/2 {
-		return "Sure.", letterCounter
-	}
-	if lastGraphic == '?' && capitalCounter >= letterCounter/2 {
+	if lastGraphic == '?' {
+		if capitalCounter < letterCounter/2 {
+			return "Sure.", letterCounter
+		}
 		return "Calm down, I know what I'm doing!", letterCounter
-	}
-	if lastGraphic != '?' && capitalCounter < letterCounter/2 {
-		return "Whatever.", letterCounter
-	}
-	if lastGraphic != '?' && capitalCounter >= letterCounter/2 {
+	} else {
+		if capitalCounter < letterCounter/2 {
+			return "Whatever.", letterCounter
+		}
 		return "Whoa, chill out!", letterCounter
 	}
-	return "", 0
 }
